@@ -26,11 +26,14 @@ class QuestionActivity : AppCompatActivity(), View.OnClickListener{
     private var myQuestionArrayList: ArrayList<Question>? = null
     private var mSelectedOptionPosition: Int = 0
     private var submitBtn: Button? = null
+    private var myUserName: String? = null
+    private var myCorrectAnswers: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question)
 
+        myUserName = intent.getStringExtra(Constants.USER_NAME)
         progressBar = findViewById(R.id.progress_horizontal)
         tvProgress = findViewById(R.id.question_counter_tv)
         tvQest = findViewById(R.id.question_tv)
@@ -140,7 +143,6 @@ class QuestionActivity : AppCompatActivity(), View.OnClickListener{
 
             R.id.btn_submit -> {
 
-
                 if(mSelectedOptionPosition == 0){
                     mCurrentPosition++
                     when{
@@ -149,6 +151,9 @@ class QuestionActivity : AppCompatActivity(), View.OnClickListener{
                         }
                         else ->{
                             val intent = Intent(this, FinishQuizActivity::class.java)
+                            intent.putExtra(Constants.USER_NAME, myUserName)
+                            intent.putExtra(Constants.CORRECT_ANSWERS, myCorrectAnswers)
+                            intent.putExtra(Constants.TOTAL_QUESTIONS, myQuestionArrayList?.size)
                             startActivity(intent)
                             finish()
                         }
@@ -158,6 +163,8 @@ class QuestionActivity : AppCompatActivity(), View.OnClickListener{
 
                     if(question!!.correctAnswer != mSelectedOptionPosition){
                         answerView(mSelectedOptionPosition,R.drawable.wrong_option)
+                    } else {
+                        myCorrectAnswers++
                     }
 
                     answerView(question.correctAnswer, R.drawable.correct_option)
