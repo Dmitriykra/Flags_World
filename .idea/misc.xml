@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/correct_option.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/my_button_bg.xml" value="0.1565" />
+        <entry key="app/src/main/res/drawable/slect_button_bg.xml" value="0.1385" />
+        <entry key="app/src/main/res/drawable/wrong_option.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16708229426433915" />
-        <entry key="app/src/main/res/layout/activity_question.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/activity_question.xml" value="0.1689497716894977" />
+        <entry key="app/src/main/res/layout/selecte_button_bg.xml" value="0.2581053698074975" />
       </map>
     </option>
   </component>
